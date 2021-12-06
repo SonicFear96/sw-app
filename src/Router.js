@@ -15,6 +15,7 @@ export const Router = () => {
           <Route path="/todo" element={<TodoPage />} />
         </Routes> */}
         <MainPage />
+        <GalleryPage />
       </div>
     </>
   );
