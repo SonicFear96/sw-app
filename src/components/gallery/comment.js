@@ -1,1 +1,1 @@
-export const commentMock = [{ id: 0, comment: "privet" }];
+export const commentMock = [{ id: 0, comment: "Amazing!" }];

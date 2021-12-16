@@ -60,9 +60,9 @@ export const Gallery = () => {
         <div className="gallery__comment">
           {comment.map((el) => {
             return (
-              <p className="comment__text" key={el.id}>
-                {el.comment}
-              </p>
+              <div className="comment__text-wrapper" key={el.id}>
+                <p className="comment__text">{el.comment}</p>
+              </div>
             );
           })}
           <textarea
@@ -70,7 +70,9 @@ export const Gallery = () => {
             onChange={handleChange}
             value={fieldValue}
           />
-          <button onClick={handleComment}>Отправить</button>
+          <button className="button comment__button" onClick={handleComment}>
+            Submit
+          </button>
         </div>
       </div>
       <ul className="image-container">

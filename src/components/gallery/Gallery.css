@@ -44,23 +44,30 @@
 }
 
 /*COMMENT*/
-.comment__text {
+.comment__text-wrapper {
   position: relative;
   margin: 20px auto;
   width: 50%;
   display: block;
-  height: 40px;
+  min-height: 40px;
   background-color: antiquewhite;
   border-radius: 8px;
 }
 
-.comment__text::after {
+.comment__text-wrapper::after {
   position: absolute;
   content: "";
   border: 20px solid transparent;
   border-right: 20px solid antiquewhite;
   bottom: -15px;
   right: 20px;
+}
+.comment__text {
+  margin: 0;
+  padding: 10px 0 10px 0;
+  color: var(--basic-black);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .comment__textarea {
@@ -72,6 +79,17 @@
 
 .select__likes {
   font-size: 20px;
+  font-weight: bold;
+}
+
+.comment__button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  padding: 10px 40px;
+  background-color: grey;
+  color: var(--basic-black);
+  font-size: 18px;
   font-weight: bold;
 }
 
