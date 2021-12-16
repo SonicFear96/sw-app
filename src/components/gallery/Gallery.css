@@ -35,7 +35,7 @@
 .image__item--selected {
   display: block;
   max-width: 500px;
-  max-height: 500px;
+  height: 400px;
   object-fit: cover;
   box-sizing: border-box;
   margin: 0 auto;
@@ -75,12 +75,17 @@
   min-height: 60px;
   padding-top: 10px;
   background-color: grey;
+  color: var(--basic-black);
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .select__likes {
   font-size: 20px;
   font-weight: bold;
 }
+
+/*Button*/
 
 .comment__button {
   margin-top: 20px;
@@ -92,8 +97,9 @@
   font-size: 18px;
   font-weight: bold;
 }
-
-/*Button*/
+.comment__button:hover {
+  background-color: darkgray;
+}
 
 .select__likes {
   border: none;
