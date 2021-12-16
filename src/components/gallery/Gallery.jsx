@@ -57,7 +57,6 @@ export const Gallery = () => {
             </svg>
           </button>
         </div>
-
         <div className="gallery__comment">
           {comment.map((el) => {
             return (
@@ -80,7 +79,7 @@ export const Gallery = () => {
             <li className="image-container-item">
               <img
                 style={{
-                  border: selectItem.src === el.src ? "2px solid brown" : "",
+                  border: selectItem.src === el.src ? "2px solid #FFE81F" : "",
                 }}
                 className="image__item"
                 key={el.id}

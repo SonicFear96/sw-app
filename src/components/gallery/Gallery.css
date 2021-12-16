@@ -39,8 +39,35 @@
   object-fit: cover;
   box-sizing: border-box;
   margin: 0 auto;
-  border: 1px solid brown;
+  border: 1px solid var(--bacis-yellow);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*COMMENT*/
+.comment__text {
+  position: relative;
+  margin: 20px auto;
+  width: 50%;
+  display: block;
+  height: 40px;
+  background-color: antiquewhite;
+  border-radius: 8px;
+}
+
+.comment__text::after {
+  position: absolute;
+  content: "";
+  border: 20px solid transparent;
+  border-right: 20px solid antiquewhite;
+  bottom: -15px;
+  right: 20px;
+}
+
+.comment__textarea {
+  width: 100%;
+  min-height: 60px;
+  padding-top: 10px;
+  background-color: grey;
 }
 
 .select__likes {

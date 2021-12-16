@@ -11,7 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+:root {
+  --bacis-yellow: #ffe81f;
+  --basic-white: #ffffff;
+  --basic-black: #000000;
+  --basic-grey: #111111;
+}
 
+html {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   background: url("../src/img/Starfield.jpg");
