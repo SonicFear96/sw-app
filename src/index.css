@@ -14,9 +14,19 @@ code {
 
 body {
   margin: 0;
-  background-color: grey;
+  background: url("../src/img/Starfield.jpg");
 }
 
 h1 {
+  margin: 0;
+  padding: 20px;
   text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+.main-container {
+  margin: 0 auto;
+  width: 90%;
+  min-height: 100vh;
+  background: rgba(40, 40, 40, 0.8);
 }
