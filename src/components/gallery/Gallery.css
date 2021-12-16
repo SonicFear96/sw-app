@@ -1,28 +1,57 @@
 .gallery-container {
   margin: auto;
   width: 100%;
-  max-width: 540px;
-}
-
-.image__item,
-.image__item--selected {
-  display: block;
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-}
-
-.image__item--selected {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  border: 1px solid brown;
+  max-width: 940px;
+  text-align: center;
 }
 
 .image-container {
-  width: 100%;
+  list-style: none;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.image-container-item {
+  margin-right: 20px;
+}
+.image__item {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.image__item--selected {
+  display: block;
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid brown;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.select__likes {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*Button*/
+.gallery__select {
+}
+.select__likes {
+  border: none;
+  background: none;
+}
+.select__likes svg {
+  fill: white;
+}
+.select__likes svg:hover {
+  fill: lightgray;
 }

@@ -17,7 +17,7 @@ export const Header = () => {
         <div className="header-navigation">
           <nav>
             <ul>
-              {/* <li>
+              <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
@@ -25,10 +25,7 @@ export const Header = () => {
               </li>
               <li>
                 <Link to="/todo">To-do list</Link>
-              </li> */}
-              <li>Home</li>
-              <li>Gallery</li>
-              <li>To-do list</li>
+              </li>
             </ul>
           </nav>
         </div>

@@ -1,33 +1,38 @@
 import { useState } from "react";
 import "./Gallery.css";
-
+import { IMG_FILE } from "./data";
+import { commentMock } from "./comment";
 export const Gallery = () => {
-  const IMG_FILE = [
-    {
-      id: 1,
-      src: "https://sun9-60.userapi.com/impf/c625517/v625517105/3d434/1CydHt5gV9w.jpg?size=1280x720&quality=96&sign=46dc667dfc997f29c0f9e718fc42406d&type=album",
-    },
-    {
-      id: 2,
-      src: "https://sun9-77.userapi.com/impf/c627328/v627328105/3624d/19JAVNqHP4Y.jpg?size=1280x720&quality=96&sign=312095b24530c626c691c071a94f7698&type=album",
-    },
-    {
-      id: 3,
-      src: "https://sun9-59.userapi.com/impf/c628527/v628527105/27a7c/k4HKPJe6GGk.jpg?size=740x1080&quality=96&sign=a9199d73648bbe5faa1d57e933d6cb01&type=album",
-    },
-    {
-      id: 4,
-      src: "https://sun9-14.userapi.com/impf/c628527/v628527105/27a86/5pVffe5DijM.jpg?size=740x1080&quality=96&sign=8368cee199d7d1874c20f4abf4fe140b&type=album",
-    },
-    {
-      id: 5,
-      src: "https://sun9-8.userapi.com/impf/c631121/v631121105/42e6/sIQ0NyRCIv0.jpg?size=740x1080&quality=96&sign=7678e898a371ca6fdea9caecb8e44256&type=album",
-    },
-  ];
-
   const [selectItem, setSelectItem] = useState(IMG_FILE[0]);
+  const [comment, setComment] = useState(commentMock);
+  const [fieldValue, setFieldValue] = useState("");
 
-  // const handleSelect = () => setSelectItem(e.selectItem);
+  const handleSelect = (e) => {
+    setSelectItem(e);
+  };
+
+  const handleLike = () => {
+    setSelectItem((prev) => ({ ...prev, isLiked: !prev.isLiked }));
+    if (selectItem.isLiked) {
+      setSelectItem((prev) => ({ ...prev, likes: prev.likes - 1 }));
+    } else {
+      setSelectItem((prev) => ({ ...prev, likes: prev.likes + 1 }));
+    }
+  };
+
+  const handleChange = (e) => {
+    setFieldValue(e.target.value);
+  };
+
+  const handleComment = () => {
+    setComment((prev) => [
+      ...prev,
+      { id: prev.length + 1, comment: fieldValue },
+    ]);
+    setFieldValue("");
+  };
+
+  console.log(comment);
 
   return (
     <div className="gallery-container">
@@ -36,22 +41,55 @@ export const Gallery = () => {
         src={selectItem.src}
         alt="selected "
       />
-      <div className="image-container">
-        {IMG_FILE.map((e) => {
+      <div className="gallery__select">
+        <span className="select__likes">{selectItem.likes}</span>
+        <button className="select__likes" onClick={handleLike}>
+          <svg
+            class="post__icon"
+            width="23"
+            height="21"
+            viewBox="0 0 23 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12.9636 3.78L12.3364 6.825L11.7091 9.45H14.3227H20.8045V11.55C20.8045 11.55 20.8045 11.55 20.8045 11.655L17.7727 18.9H8.36364V8.4L12.9636 3.78ZM2.09091 10.5V18.9V10.5ZM13.8 0L6.9 6.93C6.48182 7.245 6.27273 7.77 6.27273 8.4V18.9C6.27273 20.055 7.21364 21 8.36364 21H17.7727C18.6091 21 19.3409 20.475 19.6545 19.74L22.7909 12.285C22.8955 12.075 22.8955 11.76 22.8955 11.55V9.45H23C23 8.295 22.0591 7.35 20.9091 7.35H14.3227L15.3682 2.52V2.205C15.3682 1.785 15.1591 1.365 14.95 1.05L13.8 0ZM4.18182 8.4H0V21H4.18182V8.4Z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div className="gallery__comment">
+        {comment.map((el) => {
           return (
-            <img
-              style={{
-                border: selectItem.src === e.src ? "2px solid brown" : "",
-              }}
-              className="image__item"
-              key={e.id}
-              src={e.src}
-              alt="item img"
-              // onClick={handleSelect}
-            />
+            <p className="comment__text" key={el.id}>
+              {el.comment}
+            </p>
           );
         })}
+        <input
+          className="comment__input"
+          onChange={handleChange}
+          value={fieldValue}
+        />
+        <button onClick={handleComment}>Отправить</button>
       </div>
+      <ul className="image-container">
+        {IMG_FILE.map((el) => {
+          return (
+            <li className="image-container-item">
+              <img
+                style={{
+                  border: selectItem.src === el.src ? "2px solid brown" : "",
+                }}
+                className="image__item"
+                key={el.id}
+                src={el.src}
+                alt="item img"
+                onClick={() => handleSelect(el)}
+              />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

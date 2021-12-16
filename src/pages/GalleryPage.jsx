@@ -4,7 +4,7 @@ import { Gallery } from "../components/gallery/Gallery";
 export const GalleryPage = () => {
   return (
     <div>
-      <h1> its gallery page</h1>
+      <h1>Gallery</h1>
       <Gallery />
     </div>
   );
